@@ -4,6 +4,8 @@ apt install software-properties-common
 add-apt-repository ppa:webupd8team/java
 apt-get update
 apt-get install oracle-java8-installer
+apt install python-pip
+pip install Flask
 
 echo export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre >> /etc/profile.d/java.sh
 echo export PATH=\${JAVA_HOME}/bin:\${PATH} >> /etc/profile.d/java.sh
