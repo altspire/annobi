@@ -27,6 +27,11 @@ def allowed_file(filename):
 def index():
     return render_template('index.html')
 
+@app.route('/csv')
+def show_entries():
+    entries = {'FirstName', 'LastName', 'Gender', 'DateOfBirth'}
+    return render_template('csv.html', entries=entries)
+
 
 # Route that will process the file upload
 @app.route('/upload', methods=['POST'])
