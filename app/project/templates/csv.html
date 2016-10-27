@@ -11,11 +11,15 @@
       </div>
       <hr/>
       <div>
-        {% for entry in entries %}
-          <li><h2>{{ entry.field }}</h2>{{ entry.field|safe }}
-        {% else %}
-          <li><em>Unbelievable.  No entries here so far</em>
-        {% endfor %}
+      <table border="1" cellpadding="5">
+      {% for row in entries %}
+        <tr>
+          {% for column in row %}
+            <td>{{ column }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
       </div>
     </div>
   </body>

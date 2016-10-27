@@ -1,11 +1,13 @@
 import os
+import pprint
 # We'll render HTML templates and access data sent by POST
 # using the request object from flask. Redirect and url_for
 # will be used to redirect the user once the upload is done
 # and send_from_directory will help us to send/show on the
 # browser the file that the user just uploaded
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, jsonify
 from werkzeug import secure_filename
+from pyexcel_io import get_data
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -29,8 +31,17 @@ def index():
 
 @app.route('/csv')
 def show_entries():
-    entries = {'FirstName', 'LastName', 'Gender', 'DateOfBirth'}
-    return render_template('csv.html', entries=entries)
+    # entries = [  
+    #              { 'column': 'FirstName' }, 
+    #              { 'column': 'LastName' }, 
+    #              { 'column': 'Gender' }, 
+    #              { 'column': 'DateOfBirth' }
+                 
+    #           ]
+
+    data = get_data(os.path.join(app.config['UPLOAD_FOLDER'], 'data.csv'))
+#    return jsonify(data['data.csv'])
+    return render_template('csv.html', entries=data['data.csv'])
 
 
 # Route that will process the file upload
