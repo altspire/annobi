@@ -6,6 +6,7 @@ import pprint
 # and send_from_directory will help us to send/show on the
 # browser the file that the user just uploaded
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, jsonify
+from flask_bootstrap import Bootstrap
 from werkzeug import secure_filename
 from pyexcel_io import get_data
 
