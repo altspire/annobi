@@ -10,8 +10,15 @@ from flask_bootstrap import Bootstrap
 from werkzeug import secure_filename
 from pyexcel_io import get_data
 
+
+def create_app():
+  app = Flask(__name__)
+  Bootstrap(app)
+
+  return app
+
 # Initialize the Flask application
-app = Flask(__name__)
+app = create_app()
 
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = '/vagrant/app/project/uploads/'
@@ -29,6 +36,10 @@ def allowed_file(filename):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/bootstrap')
+def show_bootstrap():
+    return render_template('bootstrap.html')
 
 @app.route('/csv')
 def show_entries():
