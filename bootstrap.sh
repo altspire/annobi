@@ -30,12 +30,16 @@ apt-get install -y nodejs
 apt-get -y install npm
 npm install -g bower
 ln -s /usr/bin/nodejs /usr/bin/node
-bower install
 
 
-cd /vagrant/
-cookiecutter https://github.com/sloria/cookiecutter-flask.git
+# cd /vagrant/
+# cookiecutter https://github.com/sloria/cookiecutter-flask.git
+
+cd /vagrant/annobi
 
 export ANNOBI_SECRET='something-really-secret'
 export FLASK_APP=/vagrant/annobi/autoapp.py
 export FLASK_DEBUG=1
+
+pip install -r requirements/dev.txt
+bower install
