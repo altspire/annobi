@@ -1,5 +1,5 @@
 ===============================
-Annobi
+Anno Bi
 ===============================
 
 chiya piya
@@ -23,7 +23,7 @@ environment variables ::
 
 Then run the following commands to bootstrap your environment ::
 
-    git clone https://github.com/altspire/annobi
+    git clone https://github.com/altpsire/annobi
     cd annobi
     pip install -r requirements/dev.txt
     bower install
